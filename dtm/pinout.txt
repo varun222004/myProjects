@@ -1,0 +1,85 @@
+### **1. Controller (Remote Control) Pinout**
+This Arduino will be used to send movement commands to the drone. The **nRF24L01+** is connected to the following pins:
+
+#### **nRF24L01+ Module (Controller) Pinout:**
+| Pin on nRF24L01+ | Arduino Pin   | Description                      |
+|------------------|---------------|----------------------------------|
+| GND              | GND           | Ground                           |
+| VCC              | 3.3V          | Power supply (3.3V)              |
+| CE               | Pin 9         | Chip Enable for nRF24L01+        |
+| CSN              | Pin 10        | Chip Select for nRF24L01+        |
+| SCK              | Pin 13        | SPI Clock (SCK)                  |
+| MOSI             | Pin 11        | SPI MOSI (Master Out, Slave In) |
+| MISO             | Pin 12        | SPI MISO (Master In, Slave Out) |
+| IRQ              | Not connected | Interrupt pin (optional)        |
+
+#### **Servo Motor Pinout (Optional for Demonstration):**
+| Servo           | Arduino Pin   | Description                       |
+|-----------------|---------------|-----------------------------------|
+| Servo1 (Pitch)  | Pin 3         | Controls pitch (forward/backward) |
+| Servo2 (Yaw)    | Pin 5         | Controls yaw (left/right)         |
+| Servo3 (Roll)   | Pin 6         | Controls roll (left/right tilt)   |
+| Servo4 (Throttle)| Pin 9         | Controls throttle (altitude)      |
+
+---
+
+### **2. Drone (Receiver + Servo Motors + nRF24L01+ Pinout)**
+This Arduino will act as both the **drone** (receiving movement commands) and the **OTA firmware receiver**.
+
+#### **nRF24L01+ Module (Drone) Pinout:**
+| Pin on nRF24L01+ | Arduino Pin   | Description                      |
+|------------------|---------------|----------------------------------|
+| GND              | GND           | Ground                           |
+| VCC              | 3.3V          | Power supply (3.3V)              |
+| CE               | Pin 9         | Chip Enable for nRF24L01+        |
+| CSN              | Pin 10        | Chip Select for nRF24L01+        |
+| SCK              | Pin 13        | SPI Clock (SCK)                  |
+| MOSI             | Pin 11        | SPI MOSI (Master Out, Slave In) |
+| MISO             | Pin 12        | SPI MISO (Master In, Slave Out) |
+| IRQ              | Not connected | Interrupt pin (optional)        |
+
+#### **Servo Motor Pinout (For Demonstration):**
+| Servo           | Arduino Pin   | Description                       |
+|-----------------|---------------|-----------------------------------|
+| Servo1 (Pitch)  | Pin 3         | Controls pitch (forward/backward) |
+| Servo2 (Yaw)    | Pin 5         | Controls yaw (left/right)         |
+| Servo3 (Roll)   | Pin 6         | Controls roll (left/right tilt)   |
+| Servo4 (Throttle)| Pin 9         | Controls throttle (altitude)      |
+
+---
+
+### **3. Firmware Update (Transmitter for Firmware Updates) Pinout**
+This Arduino will send firmware updates to the drone via the **nRF24L01+** module.
+
+#### **nRF24L01+ Module (Firmware Update) Pinout:**
+| Pin on nRF24L01+ | Arduino Pin   | Description                      |
+|------------------|---------------|----------------------------------|
+| GND              | GND           | Ground                           |
+| VCC              | 3.3V          | Power supply (3.3V)              |
+| CE               | Pin 9         | Chip Enable for nRF24L01+        |
+| CSN              | Pin 10        | Chip Select for nRF24L01+        |
+| SCK              | Pin 13        | SPI Clock (SCK)                  |
+| MOSI             | Pin 11        | SPI MOSI (Master Out, Slave In) |
+| MISO             | Pin 12        | SPI MISO (Master In, Slave Out) |
+| IRQ              | Not connected | Interrupt pin (optional)        |
+
+---
+
+### **Additional Notes:**
+
+- **Power Supply for nRF24L01+**: The nRF24L01+ requires a **3.3V** power supply. Ensure that the Arduino's 3.3V pin is used to power the module, as applying 5V may damage the nRF24L01+ module.
+  
+- **Servos**: Servos can typically be powered directly from the Arduino's 5V pin, but if you're using multiple servos or larger ones, it might be better to use an external power supply for the servos (e.g., 5V battery pack), as Arduino's 5V pin may not supply enough current.
+
+- **Servo Movement Range**: The `servo.write()` function takes values between `0` (fully left) and `180` (fully right). Adjust the angles in the functions (`moveForward()`, `moveBackward()`, etc.) as necessary based on the range of motion you want for each servo.
+
+---
+
+### How to Use This Pinout Guide:
+- **Copy and paste** this guide directly into a text document or notes application for quick reference.
+- **Ensure your Arduino board** is correctly powered and the servos are receiving adequate voltage.
+- **Connect the wires** to the corresponding pins for each module and servo motor as listed in the table above.
+  
+---
+
+This guide should help you quickly set up and wire your Arduino-based remote control system for the drone with both movement control (via servo motors) and firmware update capabilities!

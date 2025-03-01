@@ -1,0 +1,16 @@
+1 (VSS)		Ground			GND
+2 (VDD)		+5V			5V
+3 (V0)		Contrast		Potentiometer or GND
+4 (RS)		Register Select		A0
+5 (RW)		Read/Write		GND
+6 (E)		Enable			A1
+7 (D0)		Unused			Not connected
+8 (D1)		Unused			Not connected
+9 (D2)		Unused			Not connected
+10 (D3)		Unused			Not connected
+11 (D4)		Data 4			Pin 4
+12 (D5)		Data 5			Pin 5
+13 (D6)		Data 6			Pin 6
+14 (D7)		Data 7			Pin 7
+15 (A)		LED Anode		+5V (through resistor)
+16 (K)		LED Cathode		GND
